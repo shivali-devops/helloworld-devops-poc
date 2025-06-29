@@ -18,8 +18,8 @@ jobs:
           projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: shiv-org_helloworld-devops-poc
-          SONAR_ORGANIZATION: shiv-org
+          SONAR_PROJECT_KEY: shivali-devops_helloworld-devops-poc
+          SONAR_ORGANIZATION: shivali-org
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -35,4 +35,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: shivdevops/helloworld:latest
+          tags: shivali557/helloworld:latest
+
