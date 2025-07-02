@@ -45,7 +45,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: shivdevops/helloworld:latest
+          tags: shivali557/helloworld:latest
 
       # Step 6: Configure AWS credentials for ECR
       - name: Configure AWS credentials
@@ -63,5 +63,5 @@ jobs:
       # Step 8: Tag and Push Image to ECR
       - name: Tag and Push to Amazon ECR
         run: |
-          docker tag shivdevops/helloworld:latest 664418995582.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
+          docker tag shivali557/helloworld:latest 664418995582.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
           docker push 664418995582.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
