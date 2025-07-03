@@ -14,9 +14,11 @@ jobs:
       IMAGE_TAG: latest
 
     steps:
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: SonarCloud Scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
@@ -26,26 +28,33 @@ jobs:
           SONAR_PROJECT_KEY: shivali-devops_helloworld-devops-poc
           SONAR_ORGANIZATION: shivali-org
 
+      # Step 3: Set up Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      # DockerHub Login
+      # Step 4: Login to DockerHub
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # ECR Login
-      - name: Log in to Amazon ECR
-        uses: docker/login-action@v2
+      # Step 5: Configure AWS credentials (IMPORTANT ✅)
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          registry: 664418995582.dkr.ecr.ap-south-1.amazonaws.com
-          username: AWS
-          password: ${{ secrets.AWS_ECR_PASSWORD }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
 
-      # Build and Push to Both DockerHub and ECR
-      - name: Build and push to DockerHub and ECR
+      # Step 6: Log in to Amazon ECR (manual using AWS CLI)
+      - name: Login to Amazon ECR
+        run: |
+          aws ecr get-login-password --region $AWS_REGION | \
+          docker login --username AWS --password-stdin 664418995582.dkr.ecr.$AWS_REGION.amazonaws.com
+
+      # Step 7: Build and Push to DockerHub and ECR
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
           context: .
