@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>DevOps POC App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        .container {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            display: inline-block;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 { color: #333; }
-        label { font-weight: bold; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello World App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #f9f9f9;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #1976d2;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>DevOps Pipeline Demo</h1>
-        <p><label>Status:</label> CI/CD Pipeline Working</p>
-        <p><label>Deployed On:</label> AWS App Runner</p>
-        <p><label>Image Source:</label> DockerHub / ECR</p>
-        <p><label>Triggered From:</label> GitHub Actions</p>
-    </div>
+  <div class="container">
+    <h1>Hello from DevOps POC </h1>
+    <p><span class="label">Framework:</span> Python Flask</p>
+    <p><span class="label">Deployed via:</span> GitHub Actions CI/CD</p>
+    <p><span class="label">Hosted on:</span> AWS App Runner</p>
+    <p><span class="label">Containerized with:</span> Docker & ECR</p>
+    <p><span class="label">Code Scanned with:</span> SonarCloud</p>
+    <p style="margin-top: 20px; color: green;"><strong>Status:</strong> Working successfully!</p>
+  </div>
 </body>
 </html>
