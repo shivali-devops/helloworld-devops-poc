@@ -1,4 +1,4 @@
-# helloworld-devops-poc
+# Helloworld-devops-poc
 POC:Helloworld app with CI/CD(SonarScan, Docker) &amp; AWS
-# triggering GitHub Action
-# added SonarCloud 
+# Triggering GitHub Action
+# Added SonarCloud and Quality Scan 
