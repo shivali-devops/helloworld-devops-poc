@@ -1,4 +1,4 @@
-#import app
+# test__app.py
 
-#def test_home():
-    
+def test_placeholder():
+    assert True
