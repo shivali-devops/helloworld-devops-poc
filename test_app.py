@@ -1,4 +1,6 @@
 # test__app.py
 
-def test_placeholder():
-    assert True
+import app
+
+def test_import_only():
+    assert app.app is not None
